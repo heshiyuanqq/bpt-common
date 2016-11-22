@@ -48,20 +48,20 @@ public abstract class AbstractTokenSessionStore implements TokenSessionStore {
 	// 执行TokenSessionEvent通知
 	protected void notifyEventListeners(TokenSessionEvent tokenSessionEvent, TokenSession tokenSession) {
 		if (TokenSessionEvent.Updated.equals(tokenSessionEvent)) {
-			for (TokenSessionEventListener TokenSessionEventListener : tokenSessionEventListeners) {
-				TokenSessionEventListener.onSessionUpdated(tokenSession);
+			for (TokenSessionEventListener tokenSessionEventListener : tokenSessionEventListeners) {
+				tokenSessionEventListener.onSessionUpdated(tokenSession);
 			}
 		} else if (TokenSessionEvent.Created.equals(tokenSessionEvent)) {
-			for (TokenSessionEventListener TokenSessionEventListener : tokenSessionEventListeners) {
-				TokenSessionEventListener.onSessionCreated(tokenSession);
+			for (TokenSessionEventListener tokenSessionEventListener : tokenSessionEventListeners) {
+				tokenSessionEventListener.onSessionCreated(tokenSession);
 			}
 		} else if (TokenSessionEvent.Expired.equals(tokenSessionEvent)) {
-			for (TokenSessionEventListener TokenSessionEventListener : tokenSessionEventListeners) {
-				TokenSessionEventListener.onSessionExpired(tokenSession);
+			for (TokenSessionEventListener tokenSessionEventListener : tokenSessionEventListeners) {
+				tokenSessionEventListener.onSessionExpired(tokenSession);
 			}
 		} else if (TokenSessionEvent.Removed.equals(tokenSessionEvent)) {
-			for (TokenSessionEventListener TokenSessionEventListener : tokenSessionEventListeners) {
-				TokenSessionEventListener.onSessionRemoved(tokenSession);
+			for (TokenSessionEventListener tokenSessionEventListener : tokenSessionEventListeners) {
+				tokenSessionEventListener.onSessionRemoved(tokenSession);
 			}
 		}
 	}
